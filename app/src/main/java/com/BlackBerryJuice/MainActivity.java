@@ -26,7 +26,6 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@SuppressLint("NewApi")
 public class MainActivity extends FragmentActivity {
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
