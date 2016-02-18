@@ -10,7 +10,6 @@ import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.database.SQLException;
 import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
@@ -132,15 +131,7 @@ public class MainActivity extends FragmentActivity {
 			showAlertDialog();
 		}
 
-		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.ic_drawer, // nav
-																								// menu
-																								// toggle
-																								// icon
-				R.string.app_name, // nav drawer open - description for
-									// accessibility
-				R.string.app_name // nav drawer close - description for
-									// accessibility
-		) {
+		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.ic_drawer,R.string.app_name,R.string.app_name) {
 			public void onDrawerClosed(View view) {
 				getActionBar().setTitle(mTitle);
 				// calling onPrepareOptionsMenu() to show action bar icons
@@ -235,7 +226,7 @@ public class MainActivity extends FragmentActivity {
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		// if nav drawer is opened, hide the action items
 		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		menu.findItem(R.id.ic_menu).setVisible(!drawerOpen);
+//		menu.findItem(R.id.ic_menu).setVisible(!drawerOpen);
 		return super.onPrepareOptionsMenu(menu);
 	}
 
