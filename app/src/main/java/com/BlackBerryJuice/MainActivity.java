@@ -275,14 +275,12 @@ public class MainActivity extends FragmentActivity {
 		case 8:
 			startActivity(new Intent(getApplicationContext(), ActivityContactUs.class));
 			overridePendingTransition(R.anim.open_next, R.anim.close_next);
-
 			break;
 		case 9:
 			dbhelper.deleteAllData();
 			dbhelper.close();
 			MainActivity.this.finish();
 			overridePendingTransition(R.anim.open_next, R.anim.close_next);
-
 			break;
 
 		default:
