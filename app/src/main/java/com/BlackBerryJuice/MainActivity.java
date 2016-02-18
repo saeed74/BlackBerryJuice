@@ -24,7 +24,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -225,22 +224,8 @@ public class MainActivity extends FragmentActivity {
 		if (mDrawerToggle.onOptionsItemSelected(item)) {
 			return true;
 		}
-		// Handle action bar actions click
-		switch (item.getItemId()) {
-		case R.id.rate_app:
-			try {
-				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getPackageName())));
-			} catch (android.content.ActivityNotFoundException anfe) {
-				startActivity(new Intent(Intent.ACTION_VIEW,
-						Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
-			}
-			return true;
-		case R.id.more_app:
-			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.more_apps))));
-			return true;
-		default:
 			return super.onOptionsItemSelected(item);
-		}
+
 	}
 
 	/*

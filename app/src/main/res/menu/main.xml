@@ -6,20 +6,6 @@
         android:icon="@drawable/ic_ab_overflow_compat"
         android:showAsAction="always"
         android:title="">
-        <menu>
-
-            <!-- Rate App -->
-            <item
-                android:id="@+id/rate_app"
-                android:showAsAction="ifRoom|withText"
-                android:title="@string/rate"/>
-
-            <!-- More App -->
-            <item
-                android:id="@+id/more_app"
-                android:showAsAction="ifRoom|withText"
-                android:title="@string/more"/>
-        </menu>
     </item>
 
 </menu>
