@@ -9,7 +9,7 @@
     </style>
 
     <style name="AppTheme_ActionBar" parent="android:Widget.Holo.ActionBar.Solid">
-        <item name="android:background">@color/header</item>
+        <item name="android:background">@color/tameshk</item>
         <item name="android:icon">@drawable/actionbar_icon_placeholder_compat</item>
         <item name="android:titleTextStyle">@style/AppTheme_ActionBar_Title</item>
     </style>
