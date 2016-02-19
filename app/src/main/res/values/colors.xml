@@ -54,7 +54,8 @@
 
 
     <!-- Main Layout Colors-->
-
+    <color name="Main_Layout_Shop_1">#66BB6A</color>
+    <color name="Main_Layout_Shop_2">#529852</color>
     <!-- Main Layout Colors-->
 
 </resources>
