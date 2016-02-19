@@ -40,7 +40,9 @@ import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URLEncoder;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ActivityMenuList extends Activity {
 	
@@ -61,7 +63,7 @@ public class ActivityMenuList extends Activity {
 	// create arraylist variables to store data from server
 	static ArrayList<Long> Menu_ID = new ArrayList<Long>();
 	static ArrayList<String> Menu_name = new ArrayList<String>();
-	static ArrayList<Double> Menu_price = new ArrayList<Double>();
+	static ArrayList<String> Menu_price = new ArrayList<String>();
 	static ArrayList<String> Menu_image = new ArrayList<String>();
 	
 	String MenuAPI;
@@ -86,12 +88,7 @@ public class ActivityMenuList extends Activity {
 			window.setStatusBarColor(this.getResources().getColor(R.color.tameshk_dark));
 		}
         setContentView(R.layout.menu_list);
-        
-//        ActionBar bar = getActionBar();
-//        bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.header)));
-//        bar.setTitle("Product");
-//        bar.setDisplayHomeAsUpEnabled(true);
-//        bar.setHomeButtonEnabled(true);
+
         prgLoading = (ProgressBar) findViewById(R.id.prgLoading);
         listMenu = (ListView) findViewById(R.id.listMenu);
         edtKeyword = (EditText) findViewById(R.id.edtKeyword);
@@ -394,7 +391,9 @@ public class ActivityMenuList extends Activity {
 			    
 			    Menu_ID.add(Long.parseLong(menu.getString("Menu_ID")));
 			    Menu_name.add(menu.getString("Menu_name"));
-			    Menu_price.add(Double.valueOf(formatData.format(menu.getDouble("Price"))));
+				int price = (int) menu.getDouble("Price");
+				String sp = NumberFormat.getNumberInstance(Locale.US).format(price);
+			    Menu_price.add(sp);
 			    Menu_image.add(menu.getString("Menu_image"));
 				    
 			}
