@@ -16,6 +16,14 @@
     <color name="detail_background">#372721</color>
     <color name="list_item_title">#fff</color>
 
+
+
+    <color name="tameshk">#ed1c24</color>
+    <color name="tameshk_dark">#c51a21</color>
+
+
+
+
     <!-- background menu -->
     <color name="list_background">#ffffff</color>
     <!-- background menu dipencet -->
