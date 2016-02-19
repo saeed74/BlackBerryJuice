@@ -8,34 +8,35 @@
 	        android:id="@+id/lytSearch"
 	        android:layout_width="fill_parent"
 	        android:layout_height="45dp"
-	        android:background="@color/header"
+	        android:background="#a8a8a8"
 	        android:gravity="center_vertical"
 	        android:visibility="visible" >
 
-	        <EditText
+			<ImageButton
+                android:id="@+id/btnSearch"
+                android:layout_width="200dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="3"
+                android:background="@drawable/tameshkback"
+                android:src="@drawable/ic_search"
+				android:paddingRight="5dp"
+				android:paddingLeft="5dp" />
+
+			<EditText
 	            android:id="@+id/edtKeyword"
 	            android:layout_width="fill_parent"
-	            android:layout_height="wrap_content"
-	            android:layout_marginRight="10dp"
-	            android:layout_marginLeft="5dp"
-	            android:layout_weight="1"
-	            android:background="@drawable/search_form"
-	            android:hint="@string/search"
-	            android:padding="7dp"
-	            android:textColor="@color/hint"
-	            android:textSize="14sp"
+	            android:layout_height="fill_parent"
+				android:layout_weight="1"
+	            android:background="@drawable/searchback"
+	            android:hint="جستجو"
+				android:textColor="@color/hint"
+	            android:textSize="@dimen/smallfont"
 	            android:inputType="text"
-	            android:singleLine="true" />
+	            android:singleLine="true"
+				android:gravity="center|right"
+				android:paddingRight="15dp" />
 
-	        <ImageButton
-	            android:id="@+id/btnSearch"
-	            android:layout_width="150dp"
-	            android:layout_height="wrap_content"
-	            android:layout_weight="3"
-	            android:background="@color/header"
-	            android:src="@drawable/ic_search" />
-
-	    </LinearLayout>
+		</LinearLayout>
 
         <ListView
             android:visibility="gone"
@@ -48,6 +49,8 @@
 
 	    <ProgressBar
 	        android:id="@+id/prgLoading"
+			android:indeterminateTint="@color/tameshk"
+			android:indeterminateTintMode="src_in"
 		    android:layout_height="wrap_content" 
 		    android:layout_width="wrap_content"
 		    android:layout_centerInParent="true" />
