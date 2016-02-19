@@ -2,7 +2,44 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:gravity="bottom">
 
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/footer"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:id="@+id/imageView6"
+            android:src="@drawable/site"
+            android:padding="15dp" />
+
+        <ImageView
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:id="@+id/imageView5"
+            android:src="@drawable/telegram"
+            android:padding="15dp" />
+
+        <ImageView
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:id="@+id/imageView4"
+            android:src="@drawable/insta"
+            android:padding="15dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:id="@+id/imageView3"
+            android:src="@drawable/logo_white"
+            android:layout_marginLeft="5dp" />
+    </LinearLayout>
 </LinearLayout>
