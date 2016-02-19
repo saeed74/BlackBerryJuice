@@ -22,7 +22,7 @@
     <!-- Background -->
     <item>
         <shape>
-            <solid android:color="#82d0ec" />
+            <solid android:color="#dbdbdb" />
 
             <corners android:radius="3dp" />
         </shape>
