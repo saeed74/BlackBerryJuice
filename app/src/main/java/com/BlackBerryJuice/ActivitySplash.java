@@ -29,7 +29,7 @@ public class ActivitySplash extends Activity {
         	
 			@Override
 			public void onFinish() {
-				Intent intent = new Intent(getBaseContext(), MainActivity.class);
+				Intent intent = new Intent(getBaseContext(), ActivityMainMenu.class);
 				
 				startActivity(intent);
 

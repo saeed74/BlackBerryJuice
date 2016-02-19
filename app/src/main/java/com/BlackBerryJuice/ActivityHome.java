@@ -29,10 +29,6 @@ public class ActivityHome extends Fragment implements OnItemClickListener {
 		data.add(new GridViewItem(getResources().getString(R.string.menu_cart), getResources().getDrawable(R.drawable.ic_cart)));
 		data.add(new GridViewItem(getResources().getString(R.string.menu_checkout), getResources().getDrawable(R.drawable.ic_checkout)));
 		data.add(new GridViewItem(getResources().getString(R.string.menu_profile), getResources().getDrawable(R.drawable.ic_profile)));
-		data.add(new GridViewItem(getResources().getString(R.string.menu_info), getResources().getDrawable(R.drawable.ic_info)));
-		data.add(new GridViewItem(getResources().getString(R.string.menu_about), getResources().getDrawable(R.drawable.ic_about)));
-		data.add(new GridViewItem(getResources().getString(R.string.menu_share), getResources().getDrawable(R.drawable.ic_share)));
-		data.add(new GridViewItem(getResources().getString(R.string.menu_contact), getResources().getDrawable(R.drawable.ic_contact)));
 
 		setDataAdapter();
 
@@ -60,26 +56,7 @@ public class ActivityHome extends Fragment implements OnItemClickListener {
 			getActivity().overridePendingTransition (R.anim.open_next, R.anim.close_next);
 		}
 		else if (position==3){
-			startActivity(new Intent(getActivity(), ActivityProfile.class));
-			getActivity().overridePendingTransition (R.anim.open_next, R.anim.close_next);
-		}
-		else if (position==4){
-			startActivity(new Intent(getActivity(), ActivityInformation.class));
-			getActivity().overridePendingTransition (R.anim.open_next, R.anim.close_next);
-		}
-		else if (position==5){
 			startActivity(new Intent(getActivity(), ActivityAbout.class));
-			getActivity().overridePendingTransition (R.anim.open_next, R.anim.close_next);
-		}
-		else if (position==6){
-			Intent sendInt = new Intent(Intent.ACTION_SEND);
-			sendInt.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
-			sendInt.putExtra(Intent.EXTRA_TEXT, "E-Commerce Android App\n\""+getString(R.string.app_name)+"\" \nhttps://play.google.com/store/apps/details?id="+getActivity().getPackageName());
-			sendInt.setType("text/plain");
-			startActivity(Intent.createChooser(sendInt, "Share"));
-		}
-		else {
-			startActivity(new Intent(getActivity(), ActivityContactUs.class));
 			getActivity().overridePendingTransition (R.anim.open_next, R.anim.close_next);
 		}
 

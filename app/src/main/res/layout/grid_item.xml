@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     android:padding="5dp" >
     
-    <com.solodroid.ecommerce.SquareImageView
+    <com.BlackBerryJuice.SquareImageView
         android:id="@+id/picture"
         android:layout_width="140dp"
         android:layout_height="140dp"

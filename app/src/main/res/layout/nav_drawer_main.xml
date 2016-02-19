@@ -16,17 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <!-- Listview to display slider menu -->
 
-        <ListView
-            android:id="@+id/list_slidermenu"
-            android:layout_width="240dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:background="@color/list_background"
-            android:choiceMode="singleChoice"
-            android:divider="@null"
-            android:listSelector="@drawable/list_selector" />
     </android.support.v4.widget.DrawerLayout>
 
 </LinearLayout>

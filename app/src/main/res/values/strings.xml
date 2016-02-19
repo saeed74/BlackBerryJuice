@@ -7,13 +7,6 @@
     <string name="copyright">Copyright &#169; 2015 Solodroid Developer \n All rights reserved</string>   
     <string name="email_address">developer.solodroid@gmail.com</string>
 
-	<!-- Parse push notification -->
-	<string name="parse_application_id">V0c7q2d6VCVuc0LXZmk3ZZbUjI4UMhIrgWmekZxP</string>
-	<string name="parse_client_key">VjtLo0qel4L3hpWSModBkBB4oPEUUEZHikHOVo7z</string>
-    
-    <!-- play store application in more apps -->
-    <string name="more_apps">https://play.google.com/store/apps/developer?id=Solodroid</string>
-    
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="no_phone">Your device does not support phone call feature</string>
@@ -72,46 +65,12 @@
         <item >Confirmation</item>
     </string-array>
     
-	<string name="drawer_open">Slider Menu Opened</string>
-    <string name="drawer_close">Slider Menu Closed</string>   
-    
 	<string name="menu_product">Product</string>
 	<string name="menu_cart">Cart</string>
 	<string name="menu_checkout">Checkout</string>
-	<string name="menu_profile">Profile</string>
-	<string name="menu_info">Information</string>
-	<string name="menu_about">About</string>
-	<string name="menu_share">Share</string>
-	<string name="menu_contact">Contact</string>
+	<string name="menu_profile">About</string>
      
-    <!-- Nav Drawer Menu Items -->
-    <string-array name="nav_drawer_items">
-        <item>Home</item>
-        <item>Product</item>
-        <item>Cart</item>
-        <item>Checkout</item>
-        <item>Profile</item>
-        <item>Information</item>
-        <item>About</item>
-        <item>Share</item>
-        <item>Contact</item>
-        <item>Exit</item>       
-    </string-array>
-    
-    <!-- Nav Drawer List Item Icons, keep them in order as the titles are in -->
-    <array name="nav_drawer_icons">
-        <item>@drawable/ic_home</item>       
-        <item>@drawable/ic_product</item>
-        <item>@drawable/ic_cart</item>
-        <item>@drawable/ic_checkout</item>
-        <item>@drawable/ic_profile</item>
-        <item>@drawable/ic_info</item>
-        <item>@drawable/ic_about</item>
-        <item>@drawable/ic_share</item>
-        <item>@drawable/ic_contact</item>
-        <item>@drawable/ic_exit</item>
-    </array>
-      
+
 	<!-- Write your description about profile menu for tab 1 and tab 2 -->
 	<string name="profile_tab1">    
 		Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.

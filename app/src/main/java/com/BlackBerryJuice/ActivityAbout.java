@@ -11,7 +11,7 @@ public class ActivityAbout extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.about);
-		
+
 		ActionBar bar = getActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.header)));
         bar.setTitle("About");
