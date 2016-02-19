@@ -1,5 +1,13 @@
 <resources>
 
+
+
+    <dimen name="smallfont">17dp</dimen>
+    <dimen name="medfont">19dp</dimen>
+    <dimen name="largefont">22dp</dimen>
+
+
+
     <dimen name="padding_small">8dp</dimen>
     <dimen name="padding_medium">8dp</dimen>
     <dimen name="padding_large">16dp</dimen>
