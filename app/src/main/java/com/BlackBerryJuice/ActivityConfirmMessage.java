@@ -31,7 +31,7 @@ public class ActivityConfirmMessage extends Activity {
     public void onBackPressed() {
     	// TODO Auto-generated method stub
     	super.onBackPressed();
-    	Intent intent = new Intent(ActivityConfirmMessage.this, MainActivity.class);
+    	Intent intent = new Intent(ActivityConfirmMessage.this, ActivityMainMenu.class);
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |  Intent.FLAG_ACTIVITY_SINGLE_TOP);
 		startActivity(intent);
 		overridePendingTransition(R.anim.open_main, R.anim.close_next);

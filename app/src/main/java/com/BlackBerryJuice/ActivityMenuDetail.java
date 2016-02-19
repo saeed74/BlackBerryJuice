@@ -134,6 +134,16 @@ public class ActivityMenuDetail extends Activity {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				// show input dialog
+				Intent iMyOrder = new Intent(ActivityMenuDetail.this, ActivityCart.class);
+				startActivity(iMyOrder);
+				overridePendingTransition(R.anim.open_next, R.anim.close_next);
+			}
+		});
+
+		LinearLayout add = (LinearLayout) findViewById(R.id.add);
+		add.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
 				inputDialog();
 			}
 		});

@@ -10,7 +10,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:fadeScrollbars="true"
-        android:visibility="gone" >
+        android:visibility="visible" >
 
         <LinearLayout
             android:id="@+id/lytContent"
@@ -92,6 +92,38 @@
                     android:layout_marginBottom="10dp"
                     android:background="@color/white"
                     android:layout_gravity="right" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:background="@drawable/grid_backgroud"
+                android:gravity="right"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:background="@drawable/themainbutton"
+                    android:id="@+id/add">
+
+                    <com.BlackBerryJuice.utils.TextViewPlus
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="افزودن به سبد خرید"
+                        foo:customFont="fonts/IRANSansMobile_Medium.ttf"
+                        android:id="@+id/textView"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/medfont" />
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
