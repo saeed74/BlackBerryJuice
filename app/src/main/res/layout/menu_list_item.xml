@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:foo="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#e7e7e7"
@@ -22,33 +23,36 @@
             android:paddingTop="5dp"
             android:paddingRight="15dp">
 
-            <TextView
+            <com.BlackBerryJuice.utils.TextViewPlus
                 android:id="@+id/txtText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                foo:customFont="fonts/IRANSansMobile_Medium.ttf"
                 android:layout_toLeftOf="@+id/txtSubText"
                 android:maxLines="2"
                 android:text="متن آزمایشی اول"
                 android:textSize="@dimen/medfont"
                 android:gravity="right"
-                android:layout_marginTop="5dp" />
+                android:layout_marginTop="2dp" />
 
-            <TextView
+            <com.BlackBerryJuice.utils.TextViewPlus
                 android:id="@+id/txtSubText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
+                foo:customFont="fonts/IRANSansMobile_Light_Persian_Digits.ttf"
                 android:text="متن تستی شماره دو"
                 android:textSize="@dimen/smallfont"
-                android:layout_marginTop="5dp" />
+                android:layout_marginTop="2dp"
+                android:textColor="@color/price" />
 
         </LinearLayout>
 
         <ImageView
             android:id="@+id/imgThumb"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:scaleType="centerCrop"
             android:src="@drawable/loading" />
     </LinearLayout>

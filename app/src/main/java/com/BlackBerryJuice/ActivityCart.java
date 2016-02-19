@@ -52,12 +52,10 @@ public class ActivityCart extends Activity {
 	TextView txtTotalLabel, txtTotal, txtAlert;
 	Button btnClear, Checkout;
 	RelativeLayout lytOrder;
-	
 	// declate dbhelper and adapter objects
 	DBHelper dbhelper;
 	AdapterCart mola;
-	
-	
+
 	// declare static variables to store tax and currency data
 	static double Tax;
 	static String Currency;
@@ -95,12 +93,6 @@ public class ActivityCart extends Activity {
 		}
 
         setContentView(R.layout.your_order);
-        
-//        ActionBar bar = getActionBar();
-//        bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.header)));
-//        bar.setTitle("Order Detail");
-//        bar.setDisplayHomeAsUpEnabled(true);
-//        bar.setHomeButtonEnabled(true);
         
         // connect view objects with xml id
 //        imgNavBack = (ImageButton) findViewById(R.id.imgNavBack);
