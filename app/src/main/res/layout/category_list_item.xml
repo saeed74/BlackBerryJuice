@@ -17,8 +17,8 @@
 
         <ImageView
             android:id="@+id/imgThumb"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="#fff"
             android:scaleType="centerCrop"
             android:src="@drawable/loading" />
@@ -29,7 +29,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="5dp"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:visibility="gone" />
 
     </LinearLayout>
 
