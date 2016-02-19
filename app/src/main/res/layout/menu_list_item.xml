@@ -33,7 +33,7 @@
                 android:text="متن آزمایشی اول"
                 android:textSize="@dimen/medfont"
                 android:gravity="right"
-                android:layout_marginTop="2dp" />
+                android:layout_marginTop="0dp" />
 
             <com.BlackBerryJuice.utils.TextViewPlus
                 android:id="@+id/txtSubText"
@@ -44,7 +44,7 @@
                 foo:customFont="fonts/IRANSansMobile_Light_Persian_Digits.ttf"
                 android:text="متن تستی شماره دو"
                 android:textSize="@dimen/smallfont"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="1dp"
                 android:textColor="@color/price" />
 
         </LinearLayout>

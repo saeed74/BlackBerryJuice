@@ -10,6 +10,7 @@ import android.database.SQLException;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.InputType;
@@ -18,6 +19,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
+import android.view.WindowManager;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,11 +46,13 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class ActivityMenuDetail extends Activity {
 	
 	ImageView imgPreview;
-	TextView txtText, txtSubText;
+	TextView txtText, txtSubText , txtSubText2;
 	WebView txtDescription;
 	Button btnAdd;
 	ScrollView sclDetail;
@@ -74,17 +79,25 @@ public class ActivityMenuDetail extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		if(Build.VERSION.SDK_INT >= 21) {
+			Window window = this.getWindow();
+			window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+			window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+			window.setStatusBarColor(this.getResources().getColor(R.color.tameshk_dark));
+		}
         setContentView(R.layout.menu_detail);
 
-        ActionBar bar = getActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.header)));
-        bar.setTitle("Detail Menu");
-        bar.setDisplayHomeAsUpEnabled(true);
-        bar.setHomeButtonEnabled(true);
+//        ActionBar bar = getActionBar();
+//        bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.header)));
+//        bar.setTitle("Detail Menu");
+//        bar.setDisplayHomeAsUpEnabled(true);
+//        bar.setHomeButtonEnabled(true);
         
         imgPreview = (ImageView) findViewById(R.id.imgPreview);
         txtText = (TextView) findViewById(R.id.txtText);
         txtSubText = (TextView) findViewById(R.id.txtSubText);
+        txtSubText2 = (TextView) findViewById(R.id.txtSubText2);
         txtDescription = (WebView) findViewById(R.id.txtDescription);
         btnAdd = (Button) findViewById(R.id.btnAdd);
         //btnShare = (Button) findViewById(R.id.btnShare);
@@ -239,12 +252,17 @@ public class ActivityMenuDetail extends Activity {
 			if((Menu_name != null) && IOConnect == 0){
 				sclDetail.setVisibility(0);
 			
-				imageLoader.DisplayImage(Constant.AdminPageURL+Menu_image, imgPreview);
+				imageLoader.DisplayImage(Constant.AdminPageURL + Menu_image, imgPreview);
 				
 				txtText.setText(Menu_name);
-				txtSubText.setText("Price : " +Menu_price+" "+ActivityMenuList.Currency+"\n"+"Status : "+Menu_serve+"\n"+"Stock : "+Menu_quantity);
-				txtDescription.loadDataWithBaseURL("", Menu_description, "text/html", "UTF-8", "");
-		        txtDescription.setBackgroundColor(Color.parseColor("#e7e7e7"));
+				int price = (int) Menu_price;
+				//int toman = (int) price / 10;
+				String sp = NumberFormat.getNumberInstance(Locale.US).format(price);
+				txtSubText.setText("قیمت : " +sp+" "+ActivityMenuList.Currency);
+				txtSubText2.setText("وضعیت : " + Menu_serve);
+				//txtDescription.loadDataWithBaseURL("", Menu_description, "text/html", "UTF-8", "");
+
+				txtDescription.loadDataWithBaseURL("", "<html dir=\"rtl\" lang=\"\"><body>" + Menu_description + "</body></html>", "text/html", "UTF-8", null);
 			}else{
 				txtAlert.setVisibility(0);
 			}

@@ -392,10 +392,12 @@ public class ActivityMenuList extends Activity {
 			    Menu_ID.add(Long.parseLong(menu.getString("Menu_ID")));
 			    Menu_name.add(menu.getString("Menu_name"));
 				int price = (int) menu.getDouble("Price");
+				//int toman = (int) price / 10;
 				String sp = NumberFormat.getNumberInstance(Locale.US).format(price);
 			    Menu_price.add(sp);
 			    Menu_image.add(menu.getString("Menu_image"));
 				    
+
 			}
 				
 				

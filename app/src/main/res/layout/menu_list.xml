@@ -27,14 +27,15 @@
 	            android:layout_width="fill_parent"
 	            android:layout_height="fill_parent"
 				android:layout_weight="1"
-	            android:background="@drawable/searchback"
+	            android:background="@drawable/tameshkback"
 	            android:hint="جستجو"
-				android:textColor="@color/hint"
+				android:textColor="@color/white"
 	            android:textSize="@dimen/smallfont"
 	            android:inputType="text"
 	            android:singleLine="true"
 				android:gravity="center|right"
-				android:paddingRight="15dp" />
+				android:paddingRight="15dp"
+				android:textColorHint="@color/white" />
 
 		</LinearLayout>
 
