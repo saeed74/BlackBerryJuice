@@ -1,50 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:foo="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#e7e7e7"
     android:padding="5dp" >
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/button_top_style_1"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="5dp" >
 
-        <ImageView
-            android:id="@+id/imgThumb"
-            android:layout_width="match_parent"
-            android:layout_height="280dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/loading" />
-
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/lytText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp" >
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="right"
+            android:layout_weight="1"
+            android:paddingTop="5dp"
+            android:paddingRight="15dp">
 
-            <TextView
+            <com.BlackBerryJuice.utils.TextViewPlus
                 android:id="@+id/txtText"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                foo:customFont="fonts/IRANSansMobile_Medium.ttf"
                 android:layout_toLeftOf="@+id/txtSubText"
                 android:maxLines="2"
-                android:text="aaa"
-                android:textSize="20sp" />
+                android:text="متن آزمایشی اول"
+                android:textSize="@dimen/medfont"
+                android:gravity="right"
+                android:layout_marginTop="0dp" />
 
-            <TextView
+            <com.BlackBerryJuice.utils.TextViewPlus
                 android:id="@+id/txtSubText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:text="bbb"
-                android:textSize="18sp" />
+                foo:customFont="fonts/IRANSansMobile_Light_Persian_Digits.ttf"
+                android:text="متن تستی شماره دو"
+                android:textSize="@dimen/smallfont"
+                android:textColor="@color/price"
+                android:layout_gravity="right" />
 
-        </RelativeLayout>
+            <com.BlackBerryJuice.utils.TextViewPlus
+                android:id="@+id/EExist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                foo:customFont="fonts/IRANSansMobile_Light_Persian_Digits.ttf"
+                android:text="ناموجود"
+                android:textSize="@dimen/smallfont"
+                android:textColor="@color/tameshk"
+                android:layout_gravity="right"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="135dp"
+            android:layout_height="135dp">
+            <ImageView
+                android:id="@+id/imgThumb"
+                android:layout_width="135dp"
+                android:layout_height="135dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/loading" />
+            <ImageView
+                android:id="@+id/imgnotexist"
+                android:layout_width="135dp"
+                android:layout_height="135dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/not_exist" />
+        </FrameLayout>
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

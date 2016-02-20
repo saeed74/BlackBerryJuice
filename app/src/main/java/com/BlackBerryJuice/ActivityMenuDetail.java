@@ -24,6 +24,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -275,6 +276,15 @@ public class ActivityMenuDetail extends Activity {
 				//txtDescription.loadDataWithBaseURL("", Menu_description, "text/html", "UTF-8", "");
 
 				txtDescription.loadDataWithBaseURL("", "<html dir=\"rtl\" lang=\"\"><body style=\"text-align:justify\">" + Menu_description + "</body></html>", "text/html", "UTF-8", null);
+				txtDescription.getSettings().setJavaScriptEnabled(true);
+				txtDescription.getSettings().setBuiltInZoomControls(false);
+				txtDescription.setWebViewClient(new WebViewClient());
+				txtDescription.setOnLongClickListener(new View.OnLongClickListener() {
+					@Override
+					public boolean onLongClick(View v) {
+						return true;
+					}
+				});
 				txtDescription.setClickable(false);
 
 				Typeface font = Typeface.createFromAsset(getAssets(), "fonts/IRANSansMobile_Light.ttf");
