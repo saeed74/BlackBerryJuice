@@ -314,9 +314,8 @@ public class ActivityMenuDetail extends Activity {
 			JSONObject json = new JSONObject(str);
 			JSONArray data = json.getJSONArray("data"); // this is the "items: [ ] part
 				
-			for (int i = 0; i < data.length(); i++) {
+			for (int i = 0; i < data.length(); i++){
 			    JSONObject object = data.getJSONObject(i);
-			    
 			    JSONObject menu = object.getJSONObject("Menu_detail");
 			    
 			    Menu_image = menu.getString("Menu_image");

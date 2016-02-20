@@ -56,7 +56,8 @@ public class ActivityMenuList extends Activity {
 	// declare static variable to store tax and currency symbol
 	static double Tax;
 	static String Currency;
-	
+	static String Menu_serve;
+
 	// declare adapter object to create custom menu list
 	AdapterMenuList mla;
 	
@@ -65,7 +66,8 @@ public class ActivityMenuList extends Activity {
 	static ArrayList<String> Menu_name = new ArrayList<String>();
 	static ArrayList<String> Menu_price = new ArrayList<String>();
 	static ArrayList<String> Menu_image = new ArrayList<String>();
-	
+	static ArrayList<String> Menu_exist = new ArrayList<String>();
+
 	String MenuAPI;
 	String TaxCurrencyAPI;
 	int IOConnect = 0;
@@ -155,48 +157,6 @@ public class ActivityMenuList extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.menu_category, menu);
-		
-//		final SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//        	
-//        	@Override
-//            public boolean onQueryTextChange(String newText) {         	                
-//                return true;
-//            }  
-//        	
-//        	@Override
-//            public boolean onQueryTextSubmit(String query) {
-//        		try {
-//					Keyword = URLEncoder.encode(query.toString(), "utf-8");
-//				} catch (UnsupportedEncodingException e) {
-//					e.printStackTrace();	
-//				}
-//        		
-//            	MenuAPI += "&keyword="+Keyword;
-// 				IOConnect = 0;
-//     			listMenu.invalidateViews();
-//     			clearData();
-// 				new getDataTask().execute();  
-//                
-//                return true;
-//            }          
-//        });
-//        
-//        searchView.addOnAttachStateChangeListener(new OnAttachStateChangeListener() {
-//
-//            @Override
-//            public void onViewDetachedFromWindow(View arg0) {
-//            	IOConnect = 0;
-//    			listMenu.invalidateViews();
-//    			clearData();
-//    			new getDataTask().execute();
-//            }
-//
-//            @Override
-//            public void onViewAttachedToWindow(View arg0) {
-//                // search was opened
-//            }
-//        });
         
 		return true;
 	}
@@ -294,11 +254,13 @@ public class ActivityMenuList extends Activity {
 			JSONObject tax = object_tax.getJSONObject("tax_n_currency");
 			    
 			Tax = Double.parseDouble(tax.getString("Value"));
-			
+			//JSONObject object = data.getJSONObject(i);
 			JSONObject object_currency = data.getJSONObject(1);
 			JSONObject currency = object_currency.getJSONObject("tax_n_currency");
-			    
+			//JSONObject menu = object.getJSONObject("Menu_detail");
+
 			Currency = currency.getString("Value");
+			//Menu_serve = menu.getString("Serve_for");
 			
 			
 		} catch (MalformedURLException e) {
@@ -319,6 +281,7 @@ public class ActivityMenuList extends Activity {
     	Menu_ID.clear();
     	Menu_name.clear();
     	Menu_price.clear();
+    	Menu_exist.clear();
     	Menu_image.clear();
     }
     
@@ -387,10 +350,13 @@ public class ActivityMenuList extends Activity {
 			
 			for (int i = 0; i < data.length(); i++) {
 			    JSONObject object = data.getJSONObject(i);
-			    
 			    JSONObject menu = object.getJSONObject("Menu");
-			    
+
+				//me
+				//JSONObject menusaeed = object.getJSONObject("Menu_detail");
+
 			    Menu_ID.add(Long.parseLong(menu.getString("Menu_ID")));
+				Menu_exist.add(menu.getString("Serve_for"));
 			    Menu_name.add(menu.getString("Menu_name"));
 				int price = (int) menu.getDouble("Price");
 				//int toman = (int) price / 10;

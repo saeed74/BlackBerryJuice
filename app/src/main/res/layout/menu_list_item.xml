@@ -44,17 +44,40 @@
                 foo:customFont="fonts/IRANSansMobile_Light_Persian_Digits.ttf"
                 android:text="متن تستی شماره دو"
                 android:textSize="@dimen/smallfont"
-                android:layout_marginTop="1dp"
-                android:textColor="@color/price" />
+                android:textColor="@color/price"
+                android:layout_gravity="right" />
+
+            <com.BlackBerryJuice.utils.TextViewPlus
+                android:id="@+id/EExist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                foo:customFont="fonts/IRANSansMobile_Light_Persian_Digits.ttf"
+                android:text="ناموجود"
+                android:textSize="@dimen/smallfont"
+                android:textColor="@color/tameshk"
+                android:layout_gravity="right"
+                android:visibility="gone" />
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imgThumb"
+        <FrameLayout
             android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/loading" />
+            android:layout_height="100dp">
+            <ImageView
+                android:id="@+id/imgThumb"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/loading" />
+            <ImageView
+                android:id="@+id/imgnotexist"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/not_exist" />
+        </FrameLayout>
     </LinearLayout>
 
 </LinearLayout>
