@@ -6,7 +6,7 @@
 
     <dimen name="smallfont">17dp</dimen>
     <dimen name="medfont">19dp</dimen>
-    <dimen name="largefont">22dp</dimen>
+    <dimen name="largefont">21dp</dimen>
 
 
 </resources>
