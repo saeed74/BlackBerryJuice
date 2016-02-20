@@ -6,6 +6,9 @@ import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.SQLException;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -14,14 +17,38 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.BlackBerryJuice.activities.ImageGalleryActivity;
+import com.BlackBerryJuice.enums.PaletteColorType;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.HttpConnectionParams;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.util.ArrayList;
 
 public class ActivityMainMenu extends Activity {
 	static DBHelper dbhelper;
 	AdapterMainMenu mma;
+	Intent iGet = getIntent();
+	long Menu_ID;
+	String MenuDetailAPI;
+	ArrayList<String> images = new ArrayList<>();
+
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
@@ -45,6 +72,11 @@ public class ActivityMainMenu extends Activity {
 			}
 		});
 
+		// get menu id that sent from previous page
+		Intent iGet = getIntent();
+		Menu_ID = iGet.getLongExtra("menu_id", 0);
+		// Menu detail API url
+		MenuDetailAPI = Constant.MenuDetailAPI+"?accesskey="+Constant.AccessKey+"&menu_id="+Menu_ID;
 
 
 		DisplayMetrics dm = new DisplayMetrics();
@@ -81,6 +113,34 @@ public class ActivityMainMenu extends Activity {
 			// on first time display view for first nav item
 			displayView(0);
 		}
+
+
+		images.add("http://saeedarianmanesh.com/wp-content/uploads/2016/02/post3.jpg");
+		images.add("http://saeedarianmanesh.com/wp-content/uploads/2016/02/post2.jpg");
+		images.add("http://saeedarianmanesh.com/wp-content/uploads/2016/02/iiii.jpg");
+
+
+		//saeed
+
+		new DownloadImageTask((ImageView) findViewById(R.id.g1))
+				.execute("http://saeedarianmanesh.com/wp-content/uploads/2016/02/post3.jpg");
+		new DownloadImageTask((ImageView) findViewById(R.id.g2))
+				.execute("http://saeedarianmanesh.com/wp-content/uploads/2016/02/post2.jpg");
+		new DownloadImageTask((ImageView) findViewById(R.id.g3))
+				.execute("http://saeedarianmanesh.com/wp-content/uploads/2016/02/iiii.jpg");
+
+		final Intent intent = new Intent(ActivityMainMenu.this, ImageGalleryActivity.class);
+		ImageView gal = (ImageView) findViewById(R.id.gogal);
+		gal.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				intent.putStringArrayListExtra("images", images);
+				// optionally set background color using Palette
+				intent.putExtra("palette_color_type", PaletteColorType.VIBRANT);
+				startActivity(intent);
+			}
+		});
+
 	}
 
 
@@ -153,6 +213,79 @@ public class ActivityMainMenu extends Activity {
 		} else {
 			// error in creating fragment
 			Log.e("MainActivity", "Error in creating fragment");
+		}
+	}
+
+
+	public void parseJSONData(){
+
+		try {
+			// request data from menu detail API
+			HttpClient client = new DefaultHttpClient();
+			HttpConnectionParams.setConnectionTimeout(client.getParams(), 15000);
+			HttpConnectionParams.setSoTimeout(client.getParams(), 15000);
+			HttpUriRequest request = new HttpGet(MenuDetailAPI);
+			HttpResponse response = client.execute(request);
+			InputStream atomInputStream = response.getEntity().getContent();
+
+
+			BufferedReader in = new BufferedReader(new InputStreamReader(atomInputStream));
+
+			String line;
+			String str = "";
+			while ((line = in.readLine()) != null){
+				str += line;
+			}
+
+			// parse json data and store into tax and currency variables
+			JSONObject json = new JSONObject(str);
+			JSONArray data = json.getJSONArray("data"); // this is the "items: [ ] part
+
+			for (int i = 0; i < data.length(); i++){
+				JSONObject object = data.getJSONObject(i);
+				JSONObject menu = object.getJSONObject("Gallery");
+
+				images.add(menu.getString("gallery_image"));
+
+			}
+
+
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			//IOConnect = 1;
+			e.printStackTrace();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+
+	private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+		ImageView bmImage;
+
+		public DownloadImageTask(ImageView bmImage) {
+			this.bmImage = bmImage;
+		}
+
+		protected Bitmap doInBackground(String... urls) {
+			String urldisplay = urls[0];
+			Bitmap mIcon11 = null;
+			try {
+				InputStream in = new java.net.URL(urldisplay).openStream();
+				mIcon11 = BitmapFactory.decodeStream(in);
+			} catch (Exception e) {
+				Log.e("Error", e.getMessage());
+				e.printStackTrace();
+			}
+			return mIcon11;
+		}
+
+		protected void onPostExecute(Bitmap result) {
+			bmImage.setImageBitmap(result);
 		}
 	}
 

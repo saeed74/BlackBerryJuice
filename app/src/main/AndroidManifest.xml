@@ -68,6 +68,16 @@
         <activity
             android:name="com.BlackBerryJuice.MainActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.BlackBerryJuice.activities.FullScreenImageGalleryActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label=""
+            android:theme="@style/ImageGalleryTheme" />
+        <activity
+            android:name="com.BlackBerryJuice.activities.ImageGalleryActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ImageGalleryTheme"/>
     </application>
 
 </manifest>

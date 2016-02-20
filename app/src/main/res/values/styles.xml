@@ -22,4 +22,16 @@
     <style name="AppTheme_ActionBar_Overflow" parent="android:Widget.ActionButton.Overflow">
         <item name="android:src">@drawable/ic_ab_overflow_compat</item>
     </style>
+
+
+    <style name="ImageGalleryTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="android:windowActionBarOverlay">true</item>
+    <item name="android:windowBackground">@null</item>
+    <item name="colorPrimary">@color/grey_500</item>
+    <item name="colorPrimaryDark">@android:color/black</item>
+    <item name="colorControlHighlight">@color/grey_500</item>
+    <item name="android:textColorPrimary">@android:color/white</item>
+    <item name="android:textColorSecondary">@android:color/white</item>
+    </style>
+
 </resources>

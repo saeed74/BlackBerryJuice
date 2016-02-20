@@ -32,6 +32,7 @@ public class MainActivity extends FragmentActivity {
 	static DBHelper dbhelper;
 	AdapterMainMenu mma;
 
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

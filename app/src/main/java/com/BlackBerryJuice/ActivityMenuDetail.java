@@ -124,7 +124,6 @@ public class ActivityMenuDetail extends Activity {
 		// get menu id that sent from previous page
         Intent iGet = getIntent();
         Menu_ID = iGet.getLongExtra("menu_id", 0);
-        
         // Menu detail API url
         MenuDetailAPI = Constant.MenuDetailAPI+"?accesskey="+Constant.AccessKey+"&menu_id="+Menu_ID;
         
@@ -334,7 +333,6 @@ public class ActivityMenuDetail extends Activity {
 			    Menu_serve = menu.getString("Serve_for");
 			    Menu_description = menu.getString("Description");
 			    Menu_quantity = menu.getInt("Quantity");
-				    
 			}
 				
 				

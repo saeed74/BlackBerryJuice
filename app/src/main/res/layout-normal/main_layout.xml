@@ -168,48 +168,52 @@
                     android:orientation="horizontal"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_toRightOf="@+id/imageView2"
-                    android:layout_toEndOf="@+id/imageView2"
+                    android:gravity="left|center"
+                    android:layout_toRightOf="@+id/gogal"
                     android:weightSum="90"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp">
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true">
 
                     <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
                         android:src="@drawable/slider_temp_1"
                         android:scaleType="centerCrop"
                         android:layout_weight="15"
-                        android:adjustViewBounds="true" />
+                        android:adjustViewBounds="true"
+                        android:id="@+id/g3" />
                     <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
                         android:src="@drawable/slider_temp_1"
                         android:scaleType="centerCrop"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="15dp"
                         android:layout_weight="15"
-                        android:adjustViewBounds="true" />
+                        android:adjustViewBounds="true"
+                        android:id="@+id/g2" />
                     <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
                         android:src="@drawable/slider_temp_1"
                         android:scaleType="centerCrop"
                         android:layout_weight="15"
-                        android:adjustViewBounds="true" />
+                        android:adjustViewBounds="true"
+                        android:id="@+id/g1" />
 
                 </LinearLayout>
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="40dp"
+                    android:layout_height="fill_parent"
                     android:src="@drawable/main_layout_left2"
-                    android:id="@+id/imageView2"
+                    android:id="@+id/gogal"
                     android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginLeft="15dp" />
+                    android:layout_marginRight="15dp" />
             </RelativeLayout>
 
         </LinearLayout>
