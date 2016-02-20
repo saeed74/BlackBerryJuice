@@ -92,7 +92,8 @@ public class ActivityMenuList extends Activity {
         prgLoading = (ProgressBar) findViewById(R.id.prgLoading);
         listMenu = (ListView) findViewById(R.id.listMenu);
         edtKeyword = (EditText) findViewById(R.id.edtKeyword);
-        btnSearch = (ImageButton) findViewById(R.id.btnSearch);
+		edtKeyword.setTypeface(ActivitySplash.F1);
+				btnSearch = (ImageButton) findViewById(R.id.btnSearch);
         txtAlert = (TextView) findViewById(R.id.txtAlert);
         
         // menu API url

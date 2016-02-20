@@ -91,7 +91,8 @@
                     android:textSize="14sp"
                     android:layout_marginBottom="10dp"
                     android:background="@color/white"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:clickable="false" />
             </LinearLayout>
 
             <LinearLayout

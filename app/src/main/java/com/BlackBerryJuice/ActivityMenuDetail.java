@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.database.SQLException;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -21,6 +22,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -268,11 +270,19 @@ public class ActivityMenuDetail extends Activity {
 				int price = (int) Menu_price;
 				//int toman = (int) price / 10;
 				String sp = NumberFormat.getNumberInstance(Locale.US).format(price);
-				txtSubText.setText("قیمت : " +sp+" "+ActivityMenuList.Currency);
+				txtSubText.setText("قیمت : " + sp + " " + ActivityMenuList.Currency);
 				txtSubText2.setText("وضعیت : " + Menu_serve);
 				//txtDescription.loadDataWithBaseURL("", Menu_description, "text/html", "UTF-8", "");
 
-				txtDescription.loadDataWithBaseURL("", "<html dir=\"rtl\" lang=\"\"><body>" + Menu_description + "</body></html>", "text/html", "UTF-8", null);
+				txtDescription.loadDataWithBaseURL("", "<html dir=\"rtl\" lang=\"\"><body style=\"text-align:justify\">" + Menu_description + "</body></html>", "text/html", "UTF-8", null);
+				txtDescription.setClickable(false);
+
+				Typeface font = Typeface.createFromAsset(getAssets(), "fonts/IRANSansMobile_Light.ttf");
+				WebSettings webSettings = txtDescription.getSettings();
+//				webSettings.setFixedFontFamily("");
+				webSettings.setFixedFontFamily("file:///android_asset/fonts/IRANSansMobile_Light.ttf");
+
+
 			}else{
 				txtAlert.setVisibility(0);
 			}
