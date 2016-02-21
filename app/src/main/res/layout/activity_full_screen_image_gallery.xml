@@ -7,13 +7,14 @@
         android:id="@+id/vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clickable="true"/>
+        android:clickable="true"
+        android:background="#fff" />
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:minHeight="?actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="@color/transparent_grey_900_eighty"/>
+        android:background="@color/tameshk"/>
 
 </FrameLayout>

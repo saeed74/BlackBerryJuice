@@ -51,8 +51,8 @@
     <color name="Main_Layout_Shop_2">#529852</color>
     <!-- Main Layout Colors-->
 
-    <color name="primary">@color/grey_500</color>
-    <color name="primary_dark">@android:color/black</color>
+    <color name="primary">#ed1c24</color>
+    <color name="primary_dark">#c51a21</color>
     <color name="control_highlight">@color/grey_500</color>
 
     <color name="transparent_black_five">#0D000000</color>

@@ -84,7 +84,7 @@ public class ImageGalleryActivity extends AppCompatActivity implements ImageGall
         if (mPaletteColorType != null) {
             intent.putExtra("palette_color_type", mPaletteColorType);
         }
-        Toast.makeText(this,mImages.toString() + " " + position,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this,mImages.toString() + " " + position,Toast.LENGTH_SHORT).show();
 
         startActivity(intent);
     }
