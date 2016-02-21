@@ -50,6 +50,9 @@
     <color name="Main_Layout_Shop_1">#66BB6A</color>
     <color name="Main_Layout_Shop_2">#529852</color>
     <!-- Main Layout Colors-->
+    <color name="Backg_color2">#DEDEDE</color>
+    <color name="EditText_Color_Text">#9A9A9A</color>
+    <color name="EditText_Color_Hint">#A5A5A5</color>
 
     <color name="primary">#ed1c24</color>
     <color name="primary_dark">#c51a21</color>
