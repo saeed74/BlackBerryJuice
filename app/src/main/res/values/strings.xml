@@ -20,7 +20,7 @@
 	<string name="db_exist_alert">Do you want to remove your previous order?</string>
 	<string name="confirm">Confirmation</string>
 	<string name="reservation">Reservation</string>
-	<string name="your_name">Your Name</string>
+	<string name="your_name">آدرس</string>
 	<string name="address">Your Address</string>
 	<string name="city">Your City</string>
 	<string name="province">Your Province</string>
