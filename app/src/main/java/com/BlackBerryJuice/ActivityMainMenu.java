@@ -40,6 +40,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
+import com.BlackBerryJuice.Constant;
 
 public class ActivityMainMenu extends Activity {
 	static DBHelper dbhelper;
@@ -115,19 +116,19 @@ public class ActivityMainMenu extends Activity {
 		}
 
 
-		images.add("http://saeedarianmanesh.com/wp-content/uploads/2016/02/post3.jpg");
-		images.add("http://saeedarianmanesh.com/wp-content/uploads/2016/02/post2.jpg");
-		images.add("http://saeedarianmanesh.com/wp-content/uploads/2016/02/iiii.jpg");
+		images.add(Constant.GalleryImageURL + "pic92948.jpg");
+		images.add(Constant.GalleryImageURL + "pic42377.jpg");
+		images.add(Constant.GalleryImageURL + "pic26502.jpg");
 
 
 		//saeed
 
 		new DownloadImageTask((ImageView) findViewById(R.id.g1))
-				.execute("http://saeedarianmanesh.com/wp-content/uploads/2016/02/post3.jpg");
+				.execute(Constant.GalleryImageURL + "pic92948.jpg");
 		new DownloadImageTask((ImageView) findViewById(R.id.g2))
-				.execute("http://saeedarianmanesh.com/wp-content/uploads/2016/02/post2.jpg");
+				.execute(Constant.GalleryImageURL + "pic42377.jpg");
 		new DownloadImageTask((ImageView) findViewById(R.id.g3))
-				.execute("http://saeedarianmanesh.com/wp-content/uploads/2016/02/iiii.jpg");
+				.execute(Constant.GalleryImageURL + "pic26502.jpg");
 
 		final Intent intent = new Intent(ActivityMainMenu.this, ImageGalleryActivity.class);
 		ImageView gal = (ImageView) findViewById(R.id.gogal);

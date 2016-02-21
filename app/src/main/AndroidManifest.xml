@@ -63,9 +63,6 @@
             android:name="com.BlackBerryJuice.ActivityConfirmMessage"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.BlackBerryJuice.ActivityAbout"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.BlackBerryJuice.MainActivity"
             android:screenOrientation="portrait" />
 

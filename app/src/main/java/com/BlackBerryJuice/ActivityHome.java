@@ -25,10 +25,9 @@ public class ActivityHome extends Fragment implements OnItemClickListener {
 		gridview = (GridView) v.findViewById(R.id.gridView1);
 		gridview.setOnItemClickListener(this);
 
-		data.add(new GridViewItem(getResources().getString(R.string.menu_product), getResources().getDrawable(R.drawable.ic_product)));
-		data.add(new GridViewItem(getResources().getString(R.string.menu_cart), getResources().getDrawable(R.drawable.ic_cart)));
-		data.add(new GridViewItem(getResources().getString(R.string.menu_checkout), getResources().getDrawable(R.drawable.ic_checkout)));
-		data.add(new GridViewItem(getResources().getString(R.string.menu_profile), getResources().getDrawable(R.drawable.ic_profile)));
+		data.add(new GridViewItem("product", getResources().getDrawable(R.drawable.ic_product)));
+		data.add(new GridViewItem("cart", getResources().getDrawable(R.drawable.ic_cart)));
+		data.add(new GridViewItem("checkout", getResources().getDrawable(R.drawable.ic_checkout)));
 
 		setDataAdapter();
 
@@ -53,10 +52,6 @@ public class ActivityHome extends Fragment implements OnItemClickListener {
 		}
 		else if (position==2){
 			startActivity(new Intent(getActivity(), ActivityCheckout.class));
-			getActivity().overridePendingTransition (R.anim.open_next, R.anim.close_next);
-		}
-		else if (position==3){
-			startActivity(new Intent(getActivity(), ActivityAbout.class));
 			getActivity().overridePendingTransition (R.anim.open_next, R.anim.close_next);
 		}
 
