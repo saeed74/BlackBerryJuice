@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:background="@drawable/button_top_style_1"
+        android:background="@drawable/border_shadow"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="10dp" >
