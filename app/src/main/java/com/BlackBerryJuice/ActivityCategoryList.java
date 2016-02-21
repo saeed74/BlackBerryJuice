@@ -19,6 +19,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -202,7 +203,7 @@ public class ActivityCategoryList extends Activity {
 	        while ((line = in.readLine()) != null){
 	        	str += line;
 	        }
-        
+			Log.e("saeeeeeeed", str);
 	        // parse json data and store into arraylist variables
 			JSONObject json = new JSONObject(str);
 			JSONArray data = json.getJSONArray("data");

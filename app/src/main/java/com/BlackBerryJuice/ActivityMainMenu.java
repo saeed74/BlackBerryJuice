@@ -50,6 +50,9 @@ public class ActivityMainMenu extends Activity {
 	String MenuDetailAPI;
 	ArrayList<String> images = new ArrayList<>();
 
+	String GalleryAPI;
+	int IOConnect = 0;
+
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
@@ -115,13 +118,16 @@ public class ActivityMainMenu extends Activity {
 			displayView(0);
 		}
 
-
-		images.add(Constant.GalleryImageURL + "pic92948.jpg");
-		images.add(Constant.GalleryImageURL + "pic42377.jpg");
-		images.add(Constant.GalleryImageURL + "pic26502.jpg");
+//
+//		images.add(Constant.GalleryImageURL + "pic92948.jpg");
+//		images.add(Constant.GalleryImageURL + "pic42377.jpg");
+//		images.add(Constant.GalleryImageURL + "pic26502.jpg");
 
 
 		//saeed
+		GalleryAPI = Constant.GalleryAPI+"?accesskey="+Constant.AccessKey;
+
+		new getDataTask().execute();
 
 		new DownloadImageTask((ImageView) findViewById(R.id.g1))
 				.execute(Constant.GalleryImageURL + "pic92948.jpg");
@@ -218,18 +224,60 @@ public class ActivityMainMenu extends Activity {
 	}
 
 
+	// clear arraylist variables before used
+	void clearData(){
+		images.clear();
+	}
+
+	// asynctask class to handle parsing json in background
+	public class getDataTask extends AsyncTask<Void, Void, Void> {
+
+		// show progressbar first
+		getDataTask(){
+//			if(!prgLoading.isShown()){
+//				prgLoading.setVisibility(0);
+//				txtAlert.setVisibility(8);
+//			}
+		}
+
+		@Override
+		protected Void doInBackground(Void... arg0) {
+			// TODO Auto-generated method stub
+			// parse json data from server in background
+			parseJSONData();
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+			// TODO Auto-generated method stub
+			// when finish parsing, hide progressbar
+			//prgLoading.setVisibility(8);
+
+			// if internet connection and data available show data on list
+			// otherwise, show alert text
+			if((images.size() > 0) && (IOConnect == 0)){
+//				listCategory.setVisibility(0);
+//				listCategory.setAdapter(cla);
+			}else{
+				//txtAlert.setVisibility(0);
+			}
+		}
+	}
+
+	// method to parse json data from server
 	public void parseJSONData(){
 
+		clearData();
+
 		try {
-			// request data from menu detail API
+			// request data from Category API
 			HttpClient client = new DefaultHttpClient();
 			HttpConnectionParams.setConnectionTimeout(client.getParams(), 15000);
 			HttpConnectionParams.setSoTimeout(client.getParams(), 15000);
-			HttpUriRequest request = new HttpGet(MenuDetailAPI);
+			HttpUriRequest request = new HttpGet(GalleryAPI);
 			HttpResponse response = client.execute(request);
 			InputStream atomInputStream = response.getEntity().getContent();
-
-
 			BufferedReader in = new BufferedReader(new InputStreamReader(atomInputStream));
 
 			String line;
@@ -237,16 +285,16 @@ public class ActivityMainMenu extends Activity {
 			while ((line = in.readLine()) != null){
 				str += line;
 			}
-
-			// parse json data and store into tax and currency variables
+			Log.e("saeeeeeeed", str);
+			// parse json data and store into arraylist variables
 			JSONObject json = new JSONObject(str);
-			JSONArray data = json.getJSONArray("data"); // this is the "items: [ ] part
-
-			for (int i = 0; i < data.length(); i++){
-				JSONObject object = data.getJSONObject(i);
-				JSONObject menu = object.getJSONObject("Gallery");
-
-				images.add(menu.getString("gallery_image"));
+			JSONArray pic = json.getJSONArray("picture");
+			Log.e("saeeeeeeed", pic.length()+"");
+			for (int i = 0; i < pic.length(); i++) {
+				JSONObject object = pic.getJSONObject(i);
+				JSONObject gallery = object.getJSONObject("Gallery");
+				images.add(Constant.GalleryImageURL + gallery.getString("file"));
+				Log.d("imagess", images.get(i));
 
 			}
 
@@ -256,7 +304,7 @@ public class ActivityMainMenu extends Activity {
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			//IOConnect = 1;
+			IOConnect = 1;
 			e.printStackTrace();
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
