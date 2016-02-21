@@ -170,39 +170,95 @@
                     android:layout_height="wrap_content"
                     android:gravity="left|center"
                     android:layout_toRightOf="@+id/gogal"
-                    android:weightSum="90"
+                    android:weightSum="60"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true">
 
-                    <ImageView
+                    <FrameLayout
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        android:src="@drawable/loading"
-                        android:scaleType="centerCrop"
-                        android:layout_weight="15"
-                        android:adjustViewBounds="true"
-                        android:id="@+id/g3" />
-                    <ImageView
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:src="@drawable/loading"
-                        android:scaleType="centerCrop"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_weight="15"
-                        android:adjustViewBounds="true"
-                        android:id="@+id/g2" />
+                        android:layout_weight="14">
 
-                    <ImageView
+                        <ImageView
+                            android:layout_width="fill_parent"
+                            android:layout_height="75dp"
+                            android:src="@drawable/loading"
+                            android:scaleType="centerCrop"
+                            android:layout_weight="15"
+                            android:adjustViewBounds="true"
+                            android:id="@+id/g3"
+                            android:layout_gravity="left|bottom" />
+
+                        <ProgressBar
+                            android:id="@+id/pr3"
+                            android:layout_height="30dp"
+                            android:layout_width="30dp"
+                            android:layout_gravity="center"
+                            android:indeterminateTint="@color/tameshk"
+                            android:indeterminateTintMode="src_in"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:clickable="false" />
+                    </FrameLayout>
+
+                    <FrameLayout
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        android:src="@drawable/loading"
-                        android:scaleType="centerCrop"
-                        android:layout_weight="15"
-                        android:adjustViewBounds="true"
-                        android:id="@+id/g1" />
+                        android:layout_weight="14"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <ImageView
+                            android:layout_width="fill_parent"
+                            android:layout_height="75dp"
+                            android:src="@drawable/loading"
+                            android:scaleType="centerCrop"
+                            android:layout_weight="15"
+                            android:adjustViewBounds="true"
+                            android:id="@+id/g2"
+                            android:layout_gravity="left|bottom" />
+
+                        <ProgressBar
+                            android:id="@+id/pr2"
+                            android:layout_height="30dp"
+                            android:layout_width="30dp"
+                            android:layout_gravity="center"
+                            android:indeterminateTint="@color/tameshk"
+                            android:indeterminateTintMode="src_in"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:clickable="false" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_weight="14" >
+
+                        <ImageView
+                            android:layout_width="fill_parent"
+                            android:layout_height="75dp"
+                            android:src="@drawable/loading"
+                            android:scaleType="centerCrop"
+                            android:layout_weight="15"
+                            android:adjustViewBounds="true"
+                            android:id="@+id/g1"
+                            android:layout_gravity="left|bottom" />
+
+                        <ProgressBar
+                            android:id="@+id/pr1"
+                            android:layout_height="30dp"
+                            android:layout_width="30dp"
+                            android:layout_gravity="center"
+                            android:indeterminateTint="@color/tameshk"
+                            android:indeterminateTintMode="src_in"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:clickable="false" />
+
+                    </FrameLayout>
 
                 </LinearLayout>
 

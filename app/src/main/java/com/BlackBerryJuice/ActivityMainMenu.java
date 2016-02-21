@@ -11,6 +11,7 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MenuItem;
@@ -18,6 +19,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -49,7 +51,9 @@ public class ActivityMainMenu extends Activity {
 	long Menu_ID;
 	String MenuDetailAPI;
 	ArrayList<String> images = new ArrayList<>();
-
+	ProgressBar p1;
+	ProgressBar p2;
+	ProgressBar p3;
 	String GalleryAPI;
 	int IOConnect = 0;
 
@@ -81,6 +85,7 @@ public class ActivityMainMenu extends Activity {
 		Menu_ID = iGet.getLongExtra("menu_id", 0);
 		// Menu detail API url
 		MenuDetailAPI = Constant.MenuDetailAPI+"?accesskey="+Constant.AccessKey+"&menu_id="+Menu_ID;
+
 
 
 		DisplayMetrics dm = new DisplayMetrics();
@@ -118,23 +123,20 @@ public class ActivityMainMenu extends Activity {
 			displayView(0);
 		}
 
-//
-//		images.add(Constant.GalleryImageURL + "pic92948.jpg");
-//		images.add(Constant.GalleryImageURL + "pic42377.jpg");
-//		images.add(Constant.GalleryImageURL + "pic26502.jpg");
-
 
 		//saeed
 		GalleryAPI = Constant.GalleryAPI+"?accesskey="+Constant.AccessKey;
 
 		new getDataTask().execute();
 
-		new DownloadImageTask((ImageView) findViewById(R.id.g1))
-				.execute(Constant.GalleryImageURL + "pic92948.jpg");
-		new DownloadImageTask((ImageView) findViewById(R.id.g2))
-				.execute(Constant.GalleryImageURL + "pic42377.jpg");
-		new DownloadImageTask((ImageView) findViewById(R.id.g3))
-				.execute(Constant.GalleryImageURL + "pic26502.jpg");
+		p1 = (ProgressBar)findViewById(R.id.pr1);
+		p2 = (ProgressBar)findViewById(R.id.pr2);
+		p3 = (ProgressBar)findViewById(R.id.pr3);
+
+
+		p1.setVisibility(View.VISIBLE);
+		p2.setVisibility(View.VISIBLE);
+		p3.setVisibility(View.VISIBLE);
 
 		final Intent intent = new Intent(ActivityMainMenu.this, ImageGalleryActivity.class);
 		ImageView gal = (ImageView) findViewById(R.id.gogal);
@@ -251,7 +253,15 @@ public class ActivityMainMenu extends Activity {
 		@Override
 		protected void onPostExecute(Void result) {
 			// TODO Auto-generated method stub
-			// when finish parsing, hide progressbar
+
+
+
+			new DownloadImageTask((ImageView) findViewById(R.id.g1),p1)
+					.execute(images.get(0));
+			new DownloadImageTask((ImageView) findViewById(R.id.g2),p2)
+					.execute(images.get(1));
+			new DownloadImageTask((ImageView) findViewById(R.id.g3),p3)
+					.execute(images.get(2));
 			//prgLoading.setVisibility(8);
 
 			// if internet connection and data available show data on list
@@ -295,9 +305,7 @@ public class ActivityMainMenu extends Activity {
 				JSONObject gallery = object.getJSONObject("Gallery");
 				images.add(Constant.GalleryImageURL + gallery.getString("file"));
 				Log.d("imagess", images.get(i));
-
 			}
-
 
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
@@ -312,12 +320,12 @@ public class ActivityMainMenu extends Activity {
 		}
 	}
 
-
 	private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
 		ImageView bmImage;
-
-		public DownloadImageTask(ImageView bmImage) {
+		ProgressBar PPBB;
+		public DownloadImageTask(ImageView bmImage,ProgressBar pb) {
 			this.bmImage = bmImage;
+			this.PPBB = pb;
 		}
 
 		protected Bitmap doInBackground(String... urls) {
@@ -335,6 +343,7 @@ public class ActivityMainMenu extends Activity {
 
 		protected void onPostExecute(Bitmap result) {
 			bmImage.setImageBitmap(result);
+			PPBB.setVisibility(View.GONE);
 		}
 	}
 
