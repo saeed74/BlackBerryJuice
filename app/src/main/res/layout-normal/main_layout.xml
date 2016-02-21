@@ -194,6 +194,7 @@
                         android:layout_weight="15"
                         android:adjustViewBounds="true"
                         android:id="@+id/g2" />
+
                     <ImageView
                         android:layout_width="75dp"
                         android:layout_height="75dp"
